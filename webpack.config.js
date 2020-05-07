@@ -1,4 +1,5 @@
 module.exports = {
+    entry: { main: './src/renderers/dom.js' },
     module: {
         rules: [
             {

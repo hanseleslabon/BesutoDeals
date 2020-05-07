@@ -2,11 +2,15 @@
   "name": "besutodeals",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.js",
+  "main": "./server.js",
   "scripts": {
-    "test": "jest",
-    "dev-server": "nodemon --exec babel-node src/server/server.js --ignore dist/",
+    "test": "jest --watch",
+    "dev-server": "nodemon --exec babel-node src/server.js --ignore dist/",
     "dev-bundle": "webpack -w -d"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/username/repository.git"
   },
   "author": "Hansel Eslabon",
   "license": "ISC",
@@ -15,7 +19,9 @@
     "@babel/node": "^7.8.7",
     "@babel/preset-env": "^7.9.6",
     "@babel/preset-react": "^7.9.4",
+    "axios": "^0.19.2",
     "babel-loader": "^8.1.0",
+    "ejs": "^3.1.2",
     "express": "^4.17.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

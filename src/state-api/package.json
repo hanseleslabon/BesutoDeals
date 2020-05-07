@@ -1,0 +1,12 @@
+{
+  "name": "state-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "Hansel Eslabon",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/username/repository.git"
+  },
+  "license": "ISC"
+}
