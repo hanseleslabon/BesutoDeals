@@ -1,18 +1,26 @@
 import React, { useState } from 'react';
+import ItemList from './ItemList';
+import store from '../stores/configureStore';
+import { useSelector } from 'react-redux'
 
-export default function App() {
-    const [count, setCount] = useState(0);
+const App = () => {
+    const counter = useSelector(state => state.counter)
+
+    const handleClick = (e) => {
+        store.dispatch(
+            {
+                type: 'AddCounter'
+            }
+        );
+    }
     return (
+
         <div>
-            This is a sample stateful and server-side
-            rendered React application.
+            <ItemList amount={counter} />
             <br />
-            <br />
-      Here is a button that will track
-      how many times you click it:
-            <br />
-            <br />
-            <button onClick={() => setCount(count + 1)}>{count}</button>
+            <button onClick={handleClick}>{counter}</button>
         </div>
     );
-}
+};
+
+export default App;

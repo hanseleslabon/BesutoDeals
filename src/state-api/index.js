@@ -1,4 +1,4 @@
-class DataApi {
+class StateApi {
     constructor(rawData) {
         this.rawData = rawData;
     }
@@ -10,9 +10,16 @@ class DataApi {
         }, {});
     }
 
-    getSwitchGames() {
+    getSwitchGames = () => {
         return this.mapIntoObject(this.rawData.NintedoSwitchGames);
     }
+
+    getState = () => {
+        return {
+            switchGames: this.getSwitchGames(),
+        };
+    }
+
 }
 
-export default DataApi;
+export default StateApi;
