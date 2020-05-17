@@ -1,26 +1,28 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import ItemList from './ItemList';
-import store from '../stores/configureStore';
-import { useSelector } from 'react-redux'
+import { useSelector, connect } from 'react-redux';
+import * as  actions from '../actions/actions';
 
-const App = () => {
+
+const App = (props) => {
     const counter = useSelector(state => state.counter)
+    const items = useSelector(state => state.data)
+    //Component did mount
+    useEffect(() => {
+        props.dispatch(actions.getSwitchData());
 
-    const handleClick = (e) => {
-        store.dispatch(
-            {
-                type: 'AddCounter'
-            }
-        );
-    }
+    }, []);
+
     return (
-
         <div>
-            <ItemList amount={counter} />
-            <br />
-            <button onClick={handleClick}>{counter}</button>
+            <ItemList amount={counter} items={items} />
+
         </div>
     );
 };
 
-export default App;
+export default connect(function maptStateToProps(state, props) {
+    return {
+        items: state.data,
+    }
+})(App);
