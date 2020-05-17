@@ -5,8 +5,7 @@ import * as  actions from '../actions/actions';
 
 
 const App = (props) => {
-    const counter = useSelector(state => state.counter)
-    const items = useSelector(state => state.data)
+    const items = useSelector(state => state.switchGames.data)
     //Component did mount
     useEffect(() => {
         props.dispatch(actions.getSwitchData());
@@ -15,7 +14,7 @@ const App = (props) => {
 
     return (
         <div>
-            <ItemList amount={counter} items={items} />
+            <ItemList items={items} />
 
         </div>
     );
@@ -23,6 +22,6 @@ const App = (props) => {
 
 export default connect(function maptStateToProps(state, props) {
     return {
-        items: state.data,
+        items: state.switchGames.data,
     }
 })(App);
