@@ -38,7 +38,7 @@ const switchGames = (state = defaultState, action) => {
                 loaded: false
             }
         case ('Request_Switch_Data_List_SUCCESS'):
-            const api = new DataApi(action.data.data.data);
+            const api = new DataApi(action.data.data);
             return {
                 ...state,
                 data: api.getSwitchGames(),

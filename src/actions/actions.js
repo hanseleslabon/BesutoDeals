@@ -22,11 +22,13 @@ export function getSwitchData() {
         dispatch({ type: Request_Switch_Data_List });
         axios.get("/data")
             .then((res) => {
-                dispatch({ type: Request_Switch_Data_List_SUCCESS, data: res });
+                dispatch({ type: Request_Switch_Data_List_SUCCESS, data: res.data });
             })
             .catch((error) => {
                 dispatch({ type: Request_Switch_Data_List_FAILURE, data: error });
             });
     }
 }
+
+
 

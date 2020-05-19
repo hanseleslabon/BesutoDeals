@@ -8,6 +8,9 @@
   <script type="text/javascript">
     window.initialData = <%- JSON.stringify(initialData) -%>
   </script>
+   <style id="jss-server-side">
+      <%- JSON.stringify(css) -%>
+   </style>
 </head>
 <body>
   <div id="root"><%- initialMarkup -%></div>

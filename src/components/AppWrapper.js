@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import store from '../stores/configureStore';
 import { Provider } from 'react-redux'
 import App from './App'
 
-const AppWrapper = () => {
+const AppWrapper = (props) => {
   return (
     <Provider store={store}>
-      <App />
+      <App initialData={props.initialData} />
     </Provider>
   );
 };
